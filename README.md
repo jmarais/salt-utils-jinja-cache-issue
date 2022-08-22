@@ -1,6 +1,14 @@
 # salt-utils-jinja-cache-issue
 example of a file client cache issue when instantiating two salt callers with different 'cachedir's 
 
+Issue traced down to the reuse here:
+https://github.com/saltstack/salt/blob/master/salt/utils/jinja.py#L106-L116
+does adding:
+```python
+or self._file_client.opts["cachedir"] != self.opts["cachedir"]
+```
+fix the issue?
+
 run:
 ```
 make run
