@@ -1,0 +1,5 @@
+
+base:
+  '*':
+  - manage_jinja
+
